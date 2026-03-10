@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>WS/USDC Prediction Market</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Ethers (UMD) -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>WS / USDC 5‑Minute Prediction</h1>
+
+    <div class="row">
+      <button id="connectBtn">Connect Wallet</button>
+      <span id="walletAddress" class="muted">Not connected</span>
+    </div>
+
+    <section class="card">
+      <h2>Current Market</h2>
+      <div id="marketInfo">
+        <p>Market ID: <b id="marketId">-</b></p>
+        <p>Start Price: <b id="startPrice">-</b></p>
+        <p>End Time: <b id="endTime">-</b></p>
+        <p>Up Pool: <b id="upPool">-</b></p>
+        <p>Down Pool: <b id="downPool">-</b></p>
+        <p>Status: <b id="status">-</b></p>
+        <p id="countdown" class="muted"></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>USDC Allowance</h2>
+      <p>USDC Token: <span id="usdcAddress">-</span></p>
+      <p>Allowance to contract: <b id="allowance">-</b></p>
+      <div class="row">
+        <input id="approveAmount" type="number" step="0.1" placeholder="Amount to approve (USDC)" />
+        <button id="approveBtn">Approve USDC</button>
+        <button id="approveMaxBtn">Approve Max</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Place Bet</h2>
+      <input id="betAmount" type="number" step="0.1" placeholder="Amount (USDC)" />
+      <div class="row">
+        <button id="betUpBtn">Bet UP</button>
+        <button id="betDownBtn">Bet DOWN</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Claim</h2>
+      <button id="claimBtn">Claim Winnings</button>
+    </section>
+
+    <section class="card">
+      <h2>Owner Controls</h2>
+      <button id="resolveBtn">Resolve Market (Owner)</button>
+      <button id="createBtn">Create Market (Owner)</button>
+    </section>
+
+    <div id="log" class="log"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
